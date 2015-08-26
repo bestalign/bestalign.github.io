@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript 상속 - bestalign&#39;s dev blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="C++나 Java는 언어자체에서 상속을 위한 방법을 지원하는데 반해서 JavaScript는 이상하게도 특별히 상속을 위해 따로 지원하는 문법이 없다. 더욱이 class가 아닌 prototype을 이용해서 상속을 구현해야하기 때문에 코드가 다른 언어에 비해 길고 이해하기가 어렵다. Douglas Crockford는 이것에 관해서 JavaScript 자체가 p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 상속">
+<meta property="og:url" content="http://bestalign.github.io/2015/08/02/JavaScript-Inheritance/index.html">
+<meta property="og:site_name" content="bestalign's dev blog">
+<meta property="og:description" content="C++나 Java는 언어자체에서 상속을 위한 방법을 지원하는데 반해서 JavaScript는 이상하게도 특별히 상속을 위해 따로 지원하는 문법이 없다. 더욱이 class가 아닌 prototype을 이용해서 상속을 구현해야하기 때문에 코드가 다른 언어에 비해 길고 이해하기가 어렵다. Douglas Crockford는 이것에 관해서 JavaScript 자체가 p">
+<meta property="og:updated_time" content="2015-08-26T08:48:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 상속">
+<meta name="twitter:description" content="C++나 Java는 언어자체에서 상속을 위한 방법을 지원하는데 반해서 JavaScript는 이상하게도 특별히 상속을 위해 따로 지원하는 문법이 없다. 더욱이 class가 아닌 prototype을 이용해서 상속을 구현해야하기 때문에 코드가 다른 언어에 비해 길고 이해하기가 어렵다. Douglas Crockford는 이것에 관해서 JavaScript 자체가 p">
+  
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37673421-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">bestalign&#39;s dev blog</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://bestalign.github.io"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-JavaScript-Inheritance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript 상속
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2015/08/02/JavaScript-Inheritance/" class="article-date">
+  <time datetime="2015-08-03T02:41:00.000Z" itemprop="datePublished">2015-08-02</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+      
+        <div class="article-comment-link-wrap">
+          <a href="http://bestalign.github.io/2015/08/02/JavaScript-Inheritance/#disqus_thread" class="article-comment-link">评论</a>
+        </div>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>C++나 Java는 언어자체에서 상속을 위한 방법을 지원하는데 반해서 JavaScript는 이상하게도 특별히 상속을 위해 따로 지원하는 문법이 없다. 더욱이 class가 아닌 prototype을 이용해서 상속을 구현해야하기 때문에 코드가 다른 언어에 비해 길고 이해하기가 어렵다. Douglas Crockford는 이것에 관해서 JavaScript 자체가 prototype 컨셉을 완벽히 이해하고 있지 않다고 말했다 — <a href="https://youtu.be/ya4UHuXNygM?t=50m25s" target="_blank" rel="external">Crockford on JavaScript - Act III: Function the Ultimate 50분20초</a>. ECMAScript 2015(ES6)에서는 다행히 <em>class</em>와 함께 <em>extends</em> 키워드를 추가해서 쉽게 상속을 할 수 있게 되었다.</p>
+<a id="more"></a>
+<p>아래 코드는 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" rel="external">MDN Introduction to Object-Oriented JavaScript</a>의 코드가 이해하기 좋아서 가져왔다.</p>
+<script src="//gist.github.com/aa5c1961616d496b476e.js?file=Inheritance.js"></script>
+<h2 id="Line_18-22">Line 18-22</h2><p>Student의 생성자(constructor)를 만든다. Line 16에선 Student의 생성자 안에서 Person의 생성자를 호출한다. 이것은 Java의 super()와 같은 역할을 하는데, Person 생성자를 불러서 <code>firstname</code> property를 만들기 위해서이다 — <em>Student 생성자에서 직접 할 수도 있겠지만 그러면 상속의 의미가 없어진다.</em> super()와 한 가지 다른 건 call function을 사용해서 현재 Student 생성자의 context를 바인딩 한다는 점이다. 바인딩에 대한 내용은 나중에 다뤄보도록 하겠다.</p>
+<h2 id="Line_25_-_26">Line 25 - 26</h2><p>JavaScript의 상속에서 가장 중요한 부분이다. <strong><code>Person.prototype</code>을 상속받기 위해 Student의 prototype를 업데이트한다.</strong> Person object를 만들어서 Student의 prototype으로 사용하게 되는데, 통째로 Person.prototype을 받으면서 Person의 생성자도 상속받게 되므로 다시 Student 생성자를 넣어준다.</p>
+<p>코드를 보고 의문점이 두가지가 있었다.</p>
+<p>그 중 하나는 새로운 Person object를 만들어서 사용한다는 것이었다. 왜냐하면 <code>Person.prototype</code>를 바로 prototype으로 사용하는게 속도 면에서 좋기 때문이다. Person object를 만들어서 사용하는 것과 <code>Person.prototype</code>을 사용해서 Student object를 만들었을때 Prototype chaining은 다음과 같다.</p>
+<script src="//gist.github.com/aa5c1961616d496b476e.js?file=prototype_inheritance_prototype_chaining.txt"></script>
+<p>하지만 Line 26에서 생성자를 업데이트 하는 것을 보고 바로 그 이유를 알았다. 만약 <code>Person.prototype</code>을 Student의 prototype으로 사용할 경우 Student 생성자를 업데이트 해버리면 Person의 생성자까지 같이 바뀌어버리기 때문이다. 또, Line 28-35에서 <code>Student.prototype</code>에 function을 더 추가하는데 마찬가지로 <code>Person.prototype</code>의 값을 바꿔버리게 된다.</p>
+<p>두 번째 의문은 Person object를 만들 때 <code>new Person()</code>을 사용하지 않고 <strong>생성자를 호출하지 않는</strong> <code>Object.create(Person.prototype)</code>를 사용한다는 점이었다. 이건 아주 단순한 이유였는데, 각각의 Student object가 <code>firstname</code> property를 가져야하기 때문이다. <code>firstname</code> property는 Student 생성자에서 값이 정해져야 하므로 — <em>Line 18-22에서 설명했듯이 Person 생성자는 Student 생성자 내에서 호출된다</em> — Student의 prototype을 만드는 이곳에서는 <code>Object.create(Person.prototype)</code>를 사용해야만 한다.</p>
+<p>다시 말해보자면 <strong>Person object를 만들었다고 생각하는 것보다 <code>Person.prototype</code>을 상속받는 prototype object를 새로 하나 만든다고 생각하는게 이해하기 더 쉽다.</strong> </p>
+<h2 id="Line_28-31">Line 28-31</h2><p><code>Person.prototype</code>에서 선언 된 <code>sayHello</code> 함수를 재정의 한다. <code>Student.prototype</code>에 새로운 이름이 같은 다른 함수를 선언 하는 것 뿐이며 <code>Person.prototype</code>의 <code>sayHello</code> 함수는 Property Shadowing에 의해 가려진다.</p>
+<ul>
+<li>참고글: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" rel="external">MDN Introduction to Object-Oriented JavaScript</a></li>
+<li>참고동영상: <a href="https://youtu.be/ya4UHuXNygM?t=50m25s" target="_blank" rel="external">Crockford on JavaScript - Act III: Function the Ultimate 50분20초</a></li>
+</ul>
+
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Inheritance/">Inheritance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/property-shadowing/">property shadowing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype-chain/">prototype chain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/상속/">상속</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/자바스크립트/">자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/프로토타입-체인/">프로토타입 체인</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/프로퍼티-쉐도잉/">프로퍼티 쉐도잉</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/28/Prototype-Chain/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Prototype Chain and Property Shadowing&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 bestalign&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'bestalign';
+  
+  var disqus_url = 'http://bestalign.github.io/2015/08/02/JavaScript-Inheritance/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>
