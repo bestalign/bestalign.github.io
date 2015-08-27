@@ -90,7 +90,7 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>C++나 Java는 언어자체에서 상속을 위한 방법을 지원하는데 반해서 JavaScript는 이상하게도 특별히 상속을 위해 따로 지원하는 문법이 없다. 더욱이 class가 아닌 prototype을 이용해서 상속을 구현해야하기 때문에 코드가 다른 언어에 비해 길고 이해하기가 어렵다. Douglas Crockford는 이것에 관해서 JavaScript 자체가 prototype 컨셉을 완벽히 이해하고 있지 않다고 말했다 — <a href="https://youtu.be/ya4UHuXNygM?t=50m25s">Crockford on JavaScript - Act III: Function the Ultimate 50분20초</a>. ECMAScript 2015(ES6)에서는 다행히 <em>class</em>와 함께 <em>extends</em> 키워드를 추가해서 쉽게 상속을 할 수 있게 되었다.</p>
+        <p>C++나 Java는 언어자체에서 상속을 위한 방법을 지원하는데 반해서 JavaScript는 이상하게도 특별히 상속을 위해 따로 지원하는 문법이 없다. 더욱이 class가 아닌 prototype을 이용해서 상속을 구현해야하기 때문에 코드가 다른 언어에 비해 길고 이해하기가 어렵다. Douglas Crockford는 이것에 관해서 JavaScript 자체가 prototype 컨셉을 완벽히 이해하고 있지 않다고 말했다 – <a href="https://youtu.be/ya4UHuXNygM?t=50m25s">Crockford on JavaScript - Act III: Function the Ultimate 50분20초</a>. ECMAScript 2015(ES6)에서는 다행히 <em>class</em>와 함께 <em>extends</em> 키워드를 추가해서 쉽게 상속을 할 수 있게 되었다.</p>
         
           <p class="article-more-link">
             <a href="/2015/08/02/JavaScript-Inheritance/#more">Read More</a>
@@ -248,8 +248,9 @@ ga('send', 'pageview');
       
         <p>C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.</p>
 <blockquote>
-<p><strong>Lexical scope</strong>: use environment where function [and variable] is defined<br><strong>Dynamic scope</strong>: use environment where function [and variable] is called<br>출처: <a href="https://courses.cs.washington.edu/courses/cse341/14sp/slides/lec09.pdf">University of Washington CSE341 2014 Spring - Lecture 9</a></p>
+<p><strong>Lexical scope</strong>: use environment where function [and variable] is defined<br><strong>Dynamic scope</strong>: use environment where function [and variable] is called</p>
 </blockquote>
+<p>출처: <a href="https://courses.cs.washington.edu/courses/cse341/14sp/slides/lec09.pdf">University of Washington CSE341 2014 Spring - Lecture 9</a></p>
         
           <p class="article-more-link">
             <a href="/2015/07/12/Lexical-Scope-and-Dynamic-Scope/#more">Read More</a>
@@ -353,7 +354,7 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript data type은 다음과 같다. 5개의 primitive type — 얼마전에 새로 나온 <em>ECMAScript 6</em>의 스펙에서는 symbol type이 추가 — 그리고 하나의 object type있다. primitive type은 가장 기본적이고 단순한 값을 가지며 들어가는 모든 값들은 immutable이다.</p>
+        <p>JavaScript data type은 다음과 같다. 5개의 primitive type – 얼마전에 새로 나온 <em>ECMAScript 2015</em>의 스펙에서는 symbol type이 추가 – 그리고 하나의 object type있다. primitive type은 가장 기본적이고 단순한 값을 가지며 들어가는 모든 값들은 immutable이다.</p>
 <ul>
 <li>primitive type<ul>
 <li>undefined type</li>
@@ -363,7 +364,8 @@ ga('send', 'pageview');
 <li>string type</li>
 </ul>
 </li>
-<li>object type
+<li>object type</li>
+</ul>
         
           <p class="article-more-link">
             <a href="/2015/06/29/JavaScript-Data-Type/#more">Read More</a>
@@ -417,7 +419,7 @@ ga('send', 'pageview');
       
         <p>보통 공부하는 내용들을 따로 정리하거나 하는 편은 아닌데 기록으로 남기고 공유해보고 싶다는 생각이 들어서 만들어보게 되었습니다. 일반적으로 Github Pages를 만들 때 Jekyll을 많이 쓰는데 저는 단지 요즘 JavaScript에 꽂혀있는 관계로 Node.js 기반인 Hexo를 이용해서 블로그를 만들어 보았습니다. Jekyll은 Ruby기반인데 별로 써본적이 없어서 불편하기도 하구요.</p>
 <p>기본 셋업에 Hexo 사이트에 올라와 있는 Theme을 적용해서 좀 밋밋합니다. 계속 조금씩 업데이트해서 부족하나마 개성을 줘 볼 생각입니다. 바닥부터 새로 만들어 볼까도 생각해봤는데 그러기엔 시간이 너무 걸릴 것 같네요.</p>
-<p>아마 블로깅의 대부분은 개발에 대한 내용이 되지 않을까 싶습니다. JavaScript, Java, CSS 등등 — 특히나 프론트엔드 — 일하면서 새로 배우는 내용이라던가 개발관련 번역이라던가 이것저것 생각하고 있습니다.</p>
+<p>아마 블로깅의 대부분은 개발에 대한 내용이 되지 않을까 싶습니다. JavaScript, Java, CSS 등등 – 특히나 프론트엔드 – 일하면서 새로 배우는 내용이라던가 개발관련 번역이라던가 이것저것 생각하고 있습니다.</p>
 
       
     </div>
