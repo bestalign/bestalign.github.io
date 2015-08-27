@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://bestalign.github.io/2015/07/20/new-prototype/index.html">
 <meta property="og:site_name" content="bestalign's dev blog">
 <meta property="og:description" content="JavaScript에서도 다른 여타 언어들처럼 instance를 생성할 떄 new를 사용한다. JavaScript는 prototype으로 instance를 생성해야 하기 때문에 Java나 C++같은 언어와는 다른 방식을 가지고 있다. 내부적으로 어떤식으로 동작하는지 궁금해서 검색해보다가 Douglas Crockford의 책 JavaScript: The Go">
-<meta property="og:updated_time" content="2015-08-26T08:50:56.000Z">
+<meta property="og:updated_time" content="2015-08-27T07:32:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="new와 prototype">
 <meta name="twitter:description" content="JavaScript에서도 다른 여타 언어들처럼 instance를 생성할 떄 new를 사용한다. JavaScript는 prototype으로 instance를 생성해야 하기 때문에 Java나 C++같은 언어와는 다른 방식을 가지고 있다. 내부적으로 어떤식으로 동작하는지 궁금해서 검색해보다가 Douglas Crockford의 책 JavaScript: The Go">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript에서도 다른 여타 언어들처럼 instance를 생성할 떄 new를 사용한다. JavaScript는 prototype으로 instance를 생성해야 하기 때문에 Java나 C++같은 언어와는 다른 방식을 가지고 있다. 내부적으로 어떤식으로 동작하는지 궁금해서 검색해보다가 <a href="https://en.wikipedia.org/wiki/Douglas_Crockford" target="_blank" rel="external">Douglas Crockford</a>의 책 <em>JavaScript: The Good Parts</em>에 좋은 코드가 있어서 가져와보았다. 아래의 코드는 new가 keyword가 아니라 function이라고 가정했을 떄 적어본 것이다.<br><a id="more"></a></p>
+        <p>JavaScript에서도 다른 여타 언어들처럼 instance를 생성할 떄 new를 사용한다. JavaScript는 prototype으로 instance를 생성해야 하기 때문에 Java나 C++같은 언어와는 다른 방식을 가지고 있다. 내부적으로 어떤식으로 동작하는지 궁금해서 검색해보다가 <a href="https://en.wikipedia.org/wiki/Douglas_Crockford" target="_blank" rel="external">Douglas Crockford</a>의 책 <em>JavaScript: The Good Parts</em>에 좋은 코드가 있어서 가져와보았다. 아래의 코드는 new가 keyword가 아니라 function이라고 가정했을 때 적어본 것이다.<br><a id="more"></a></p>
 <script src="//gist.github.com/5111bb2e85c5b348f189.js?file=new-fuction.js"></script>
 <p>object를 생성할 때 쓰인 Object.create()는 완전히 빈 object를 만들어서 거기에다가 단순히 prototype을 연결시키는 역할을 한다. 위의 line 13의 코드를 바꿔보자면 다음과 같다.</p>
 <script src="//gist.github.com/5111bb2e85c5b348f189.js?file=object-create.js"></script>
@@ -130,8 +130,8 @@ ga('send', 'pageview');
     </a>
   
   
-    <a href="/2015/07/12/Lexical-Scope-in-JavaScript/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Lexical Scope in JavaScript&nbsp;<span>&gt;</span></div>
+    <a href="/2015/07/12/Lexical-Scope-and-Dynamic-Scope/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lexical Scope and Dynamic Scope&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>

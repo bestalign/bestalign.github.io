@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Lexical Scope in JavaScript - bestalign&#39;s dev blog</title>
+  <title>Lexical Scope and Dynamic Scope - bestalign&#39;s dev blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Lexical Scope and Dynamic ScopeC/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어">
+  <meta name="description" content="C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lexical Scope in JavaScript">
-<meta property="og:url" content="http://bestalign.github.io/2015/07/12/Lexical-Scope-in-JavaScript/index.html">
+<meta property="og:title" content="Lexical Scope and Dynamic Scope">
+<meta property="og:url" content="http://bestalign.github.io/2015/07/12/Lexical-Scope-and-Dynamic-Scope/index.html">
 <meta property="og:site_name" content="bestalign's dev blog">
-<meta property="og:description" content="Lexical Scope and Dynamic ScopeC/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어">
-<meta property="og:updated_time" content="2015-08-26T08:43:49.000Z">
+<meta property="og:description" content="C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.">
+<meta property="og:updated_time" content="2015-08-27T07:45:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lexical Scope in JavaScript">
-<meta name="twitter:description" content="Lexical Scope and Dynamic ScopeC/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어">
+<meta name="twitter:title" content="Lexical Scope and Dynamic Scope">
+<meta name="twitter:description" content="C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.">
   
   
   <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
@@ -59,7 +59,7 @@ ga('send', 'pageview');
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-Lexical-Scope-in-JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-Lexical-Scope-and-Dynamic-Scope" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -67,14 +67,14 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      Lexical Scope in JavaScript
+      Lexical Scope and Dynamic Scope
     </h1>
   
 
       </header>
     
     <div class="article-meta">
-      <a href="/2015/07/12/Lexical-Scope-in-JavaScript/" class="article-date">
+      <a href="/2015/07/12/Lexical-Scope-and-Dynamic-Scope/" class="article-date">
   <time datetime="2015-07-13T03:33:56.000Z" itemprop="datePublished">2015-07-12</time>
 </a>
       
@@ -84,15 +84,15 @@ ga('send', 'pageview');
 
       
         <div class="article-comment-link-wrap">
-          <a href="http://bestalign.github.io/2015/07/12/Lexical-Scope-in-JavaScript/#disqus_thread" class="article-comment-link">Comments</a>
+          <a href="http://bestalign.github.io/2015/07/12/Lexical-Scope-and-Dynamic-Scope/#disqus_thread" class="article-comment-link">Comments</a>
         </div>
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Lexical_Scope_and_Dynamic_Scope">Lexical Scope and Dynamic Scope</h1><p>C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.</p>
+        <p>C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.</p>
 <blockquote>
-<p><strong>Lexical scope</strong>: use [context] where function [and variable] is defined<br><strong>Dynamic scope</strong>: use [context] where function [and variable] is called<br>출처: <a href="https://courses.cs.washington.edu/courses/cse341/14sp/slides/lec09.pdf" target="_blank" rel="external">University of Washington CSE341 2014 Spring - Lecture 9</a></p>
+<p><strong>Lexical scope</strong>: use environment where function [and variable] is defined<br><strong>Dynamic scope</strong>: use environment where function [and variable] is called<br>출처: <a href="https://courses.cs.washington.edu/courses/cse341/14sp/slides/lec09.pdf" target="_blank" rel="external">University of Washington CSE341 2014 Spring - Lecture 9</a></p>
 </blockquote>
 <a id="more"></a> 
 <p>Lexical Scope는 변수나 함수가 <strong>정의 된 곳</strong>의 context를 사용하며, Dynamic Scope는 변수나 함수가 <strong>불려진 곳</strong>의 context를 사용한다. Lexical Scope는 아주 익숙한 개념이므로 Dynamic Scope에 대해서만 간단히 설명하고, Lexical Scope가 JavaScript에서 어떻게 쓰이는 지 적어볼까 한다.</p>
@@ -182,7 +182,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'bestalign';
   
-  var disqus_url = 'http://bestalign.github.io/2015/07/12/Lexical-Scope-in-JavaScript/';
+  var disqus_url = 'http://bestalign.github.io/2015/07/12/Lexical-Scope-and-Dynamic-Scope/';
   
   (function(){
     var dsq = document.createElement('script');

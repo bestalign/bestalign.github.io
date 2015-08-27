@@ -112,8 +112,8 @@
     <link href="http://bestalign.github.io/2015/07/20/new-prototype/"/>
     <id>http://bestalign.github.io/2015/07/20/new-prototype/</id>
     <published>2015-07-20T17:33:56.000Z</published>
-    <updated>2015-08-26T08:50:56.000Z</updated>
-    <content type="html"><![CDATA[<p>JavaScript에서도 다른 여타 언어들처럼 instance를 생성할 떄 new를 사용한다. JavaScript는 prototype으로 instance를 생성해야 하기 때문에 Java나 C++같은 언어와는 다른 방식을 가지고 있다. 내부적으로 어떤식으로 동작하는지 궁금해서 검색해보다가 <a href="https://en.wikipedia.org/wiki/Douglas_Crockford" target="_blank" rel="external">Douglas Crockford</a>의 책 <em>JavaScript: The Good Parts</em>에 좋은 코드가 있어서 가져와보았다. 아래의 코드는 new가 keyword가 아니라 function이라고 가정했을 떄 적어본 것이다.<br><a id="more"></a></p>
+    <updated>2015-08-27T07:32:19.000Z</updated>
+    <content type="html"><![CDATA[<p>JavaScript에서도 다른 여타 언어들처럼 instance를 생성할 떄 new를 사용한다. JavaScript는 prototype으로 instance를 생성해야 하기 때문에 Java나 C++같은 언어와는 다른 방식을 가지고 있다. 내부적으로 어떤식으로 동작하는지 궁금해서 검색해보다가 <a href="https://en.wikipedia.org/wiki/Douglas_Crockford" target="_blank" rel="external">Douglas Crockford</a>의 책 <em>JavaScript: The Good Parts</em>에 좋은 코드가 있어서 가져와보았다. 아래의 코드는 new가 keyword가 아니라 function이라고 가정했을 때 적어본 것이다.<br><a id="more"></a></p>
 <script src="//gist.github.com/5111bb2e85c5b348f189.js?file=new-fuction.js"></script>
 <p>object를 생성할 때 쓰인 Object.create()는 완전히 빈 object를 만들어서 거기에다가 단순히 prototype을 연결시키는 역할을 한다. 위의 line 13의 코드를 바꿔보자면 다음과 같다.</p>
 <script src="//gist.github.com/5111bb2e85c5b348f189.js?file=object-create.js"></script>
@@ -131,7 +131,7 @@
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>JavaScript에서도 다른 여타 언어들처럼 instance를 생성할 떄 new를 사용한다. JavaScript는 prototype으로 instance를 생성해야 하기 때문에 Java나 C++같은 언어와는 다른 방식을 가지고 있다. 내부적으로 어떤식으로 동작하는지 궁금해서 검색해보다가 <a href="https://en.wikipedia.org/wiki/Douglas_Crockford">Douglas Crockford</a>의 책 <em>JavaScript: The Good Parts</em>에 좋은 코드가 있어서 가져와보았다. 아래의 코드는 new가 keyword가 아니라 function이라고 가정했을 떄 적어본 것이다.<br>]]>
+    <![CDATA[<p>JavaScript에서도 다른 여타 언어들처럼 instance를 생성할 떄 new를 사용한다. JavaScript는 prototype으로 instance를 생성해야 하기 때문에 Java나 C++같은 언어와는 다른 방식을 가지고 있다. 내부적으로 어떤식으로 동작하는지 궁금해서 검색해보다가 <a href="https://en.wikipedia.org/wiki/Douglas_Crockford">Douglas Crockford</a>의 책 <em>JavaScript: The Good Parts</em>에 좋은 코드가 있어서 가져와보았다. 아래의 코드는 new가 keyword가 아니라 function이라고 가정했을 때 적어본 것이다.<br>]]>
     
     </summary>
     
@@ -150,14 +150,14 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Lexical Scope in JavaScript]]></title>
-    <link href="http://bestalign.github.io/2015/07/12/Lexical-Scope-in-JavaScript/"/>
-    <id>http://bestalign.github.io/2015/07/12/Lexical-Scope-in-JavaScript/</id>
+    <title><![CDATA[Lexical Scope and Dynamic Scope]]></title>
+    <link href="http://bestalign.github.io/2015/07/12/Lexical-Scope-and-Dynamic-Scope/"/>
+    <id>http://bestalign.github.io/2015/07/12/Lexical-Scope-and-Dynamic-Scope/</id>
     <published>2015-07-13T03:33:56.000Z</published>
-    <updated>2015-08-26T08:43:49.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="Lexical_Scope_and_Dynamic_Scope">Lexical Scope and Dynamic Scope</h1><p>C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.</p>
+    <updated>2015-08-27T07:45:27.000Z</updated>
+    <content type="html"><![CDATA[<p>C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.</p>
 <blockquote>
-<p><strong>Lexical scope</strong>: use [context] where function [and variable] is defined<br><strong>Dynamic scope</strong>: use [context] where function [and variable] is called<br>출처: <a href="https://courses.cs.washington.edu/courses/cse341/14sp/slides/lec09.pdf" target="_blank" rel="external">University of Washington CSE341 2014 Spring - Lecture 9</a></p>
+<p><strong>Lexical scope</strong>: use environment where function [and variable] is defined<br><strong>Dynamic scope</strong>: use environment where function [and variable] is called<br>출처: <a href="https://courses.cs.washington.edu/courses/cse341/14sp/slides/lec09.pdf" target="_blank" rel="external">University of Washington CSE341 2014 Spring - Lecture 9</a></p>
 </blockquote>
 <a id="more"></a> 
 <p>Lexical Scope는 변수나 함수가 <strong>정의 된 곳</strong>의 context를 사용하며, Dynamic Scope는 변수나 함수가 <strong>불려진 곳</strong>의 context를 사용한다. Lexical Scope는 아주 익숙한 개념이므로 Dynamic Scope에 대해서만 간단히 설명하고, Lexical Scope가 JavaScript에서 어떻게 쓰이는 지 적어볼까 한다.</p>
@@ -195,9 +195,9 @@
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="Lexical_Scope_and_Dynamic_Scope">Lexical Scope and Dynamic Scope</h1><p>C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.</p>
+    <![CDATA[<p>C/C++, Java, 그리고 JavaScript 같이 우리가 접하는 대부분의 언어들은 Lexical Scope를 사용한다. Lexical Scope는 Static Scope라고도 불린다. 반대의 방식으로는 Dynamic Scope가 있으며 Perl, Bash Shell, APL 같은 몇몇 오래된 언어들이 사용하는 방식이다. 두 방식의 정의는 다음과 같다.</p>
 <blockquote>
-<p><strong>Lexical scope</strong>: use [context] where function [and variable] is defined<br><strong>Dynamic scope</strong>: use [context] where function [and variable] is called<br>출처: <a href="https://courses.cs.washington.edu/courses/cse341/14sp/slides/lec09.pdf">University of Washington CSE341 2014 Spring - Lecture 9</a></p>
+<p><strong>Lexical scope</strong>: use environment where function [and variable] is defined<br><strong>Dynamic scope</strong>: use environment where function [and variable] is called<br>출처: <a href="https://courses.cs.washington.edu/courses/cse341/14sp/slides/lec09.pdf">University of Washington CSE341 2014 Spring - Lecture 9</a></p>
 </blockquote>]]>
     
     </summary>
