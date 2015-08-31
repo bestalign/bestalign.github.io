@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://bestalign.github.io/"/>
-  <updated>2015-08-30T09:03:11.000Z</updated>
+  <updated>2015-08-31T09:39:01.000Z</updated>
   <id>http://bestalign.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://bestalign.github.io/2015/08/30/osx-bash-keyboard-shortcuts/"/>
     <id>http://bestalign.github.io/2015/08/30/osx-bash-keyboard-shortcuts/</id>
     <published>2015-08-30T09:03:11.000Z</published>
-    <updated>2015-08-30T09:03:11.000Z</updated>
+    <updated>2015-08-31T09:39:01.000Z</updated>
     <content type="html"><![CDATA[<p>원본: <a href="http://ss64.com/osx/syntax-bashkeyboard.html" target="_blank" rel="external">http://ss64.com/osx/syntax-bashkeyboard.html</a></p>
 <p>이미 아시는 분들도 많겠지만 Emacs의 단축키 중 어느정도가 OS X 터미널에서 사용이 가능하다. 나도 조금은 사용을 하고 있었지만 한 번 제대로 써보자 하는 생각이 들어서 정리를 하게 되었다. 정확히 어떤 단축키를 지원하는지 잘 몰라서 구글링을 좀 했는데 꽤 잘 정리된 포스팅이 있어서 번역해 보았다. 직접 OS X Yosemite에서 직접 테스트하면서 작성했고, 더 이해하기 쉽게 세부 카테고리를 나누어서 정리했다. 그리고 원본이 오래되어서 그런지 몰라도 실행이 안되는 경우도 있었는데, 거의 쓰이지 않는 단축키들이라서 그냥 리스트에 포함시키지 않았다.<br><a id="more"></a></p>
 <p>사용 전에 Alt키의 설정을 조금 손 봐야한다. 아래의 스크린샷처럼 터미널의 키보드 설정에서 Alt키를 Meta키로 사용하는 걸로 바꿔주면 된다. iTerm이나 다른 터미널 어플리케이션에서도 대부분 지원하는 옵션이다.<br><img src="/2015/08/30/osx-bash-keyboard-shortcuts/opt_meta_key.png" alt="Option키를 Meta키로 변경" title="Option키를 Meta키로 변경"></p>
@@ -112,7 +112,7 @@
     
       <category term="터미널" scheme="http://bestalign.github.io/tags/%ED%84%B0%EB%AF%B8%EB%84%90/"/>
     
-      <category term="tip" scheme="http://bestalign.github.io/categories/tip/"/>
+      <category term="번역" scheme="http://bestalign.github.io/categories/%EB%B2%88%EC%97%AD/"/>
     
   </entry>
   
