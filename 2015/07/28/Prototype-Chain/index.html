@@ -21,7 +21,7 @@
   
   <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 <!-- Google Analytics -->
 <script type="text/javascript">
@@ -93,14 +93,14 @@ ga('send', 'pageview');
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Prototype_Chain">Prototype Chain</h1><p><strong>JavaScript의 Prototype Chain은 <em>[[Prototype]]</em>으로 이루어지는 object들의 연결을 말한다.</strong> JavaScript의 Primitive Type을 제외한 모든 object는 <em>[[Prototype]]</em>을 가지고 있으며 그 연결된 Prototype Chain은 마치 Linked List 처럼 생겼다. Prototype Chain의 마지막은 항상 <code>Object.prototype</code>에서 끝나며, <code>Object.prototype</code>의 <em>[[Prototype]]</em>은 일반적인 Linked List처럼 null로 끝난다.<br><a id="more"></a></p>
+        <h1 id="Prototype-Chain"><a href="#Prototype-Chain" class="headerlink" title="Prototype Chain"></a>Prototype Chain</h1><p><strong>JavaScript의 Prototype Chain은 <em>[[Prototype]]</em>으로 이루어지는 object들의 연결을 말한다.</strong> JavaScript의 Primitive Type을 제외한 모든 object는 <em>[[Prototype]]</em>을 가지고 있으며 그 연결된 Prototype Chain은 마치 Linked List 처럼 생겼다. Prototype Chain의 마지막은 항상 <code>Object.prototype</code>에서 끝나며, <code>Object.prototype</code>의 <em>[[Prototype]]</em>은 일반적인 Linked List처럼 null로 끝난다.<br><a id="more"></a></p>
 <script src="//gist.github.com/99cb16fbee2e48e748c2.js?file=prototype_chain.js"></script>
 <p>위의 코드는 <code>A_Prototype</code>을 만들고 거기서 A라는 instance를 생성하는 것을 보여준다. 이 object와 prototype의 Prototype Chain을 그래프로 간략히 그려보면 다음과 같다.</p>
 <script src="//gist.github.com/99cb16fbee2e48e748c2.js?file=prototype_chain_example.js"></script>
 <p>위의 예제에 써 있듯이 <code>A</code>, <code>A_Prototype</code>, <code>Object.prototype</code>, <code>null</code>순으로 Prototype Chain이 연결된다. <code>Object.prototype</code>에는 아주 많은 property가 있지만 가독성을 위해 생략했다. JavaScript engine은 object의 property를 접근할 때 그 object의 property 뿐만이 아니라 상황에 따라 Prototype Chain으로 연결된 상위 object의 property까지 확인하게 된다.</p>
 <p>위의 예제에서 <code>A.z</code>는 <code>A</code>의 property이므로 바로 3을 출력한다. <code>A.x</code>와 <code>A.y</code>같은 경우는 <code>A</code>가 가지고 있지 않은 property이기 때문에 Prototype Chain을 거슬러 올라가면서 확인하게 되며, <code>A_Prototype</code>의 property인 <code>A_Prototype.x</code>, <code>A_Prototype.y</code>의 값인 1, 2를 출력하게 된다. <code>A.x</code>와 <code>A.y</code>는 <code>A_Prototype</code>에게서 상속받았다고 볼 수 있다.</p>
 <p>마지막으로 <code>A.a</code>는 위의 Prototype Chain에 있는 어느 object에도 존재하지 않는 property이다. JavaScript engine은 Prototype Chain의 끝인 <code>Object.prototype</code>까지 확인한 뒤 <code>undefined</code>를 출력하게 된다.</p>
-<h1 id="Property_Shadowing">Property Shadowing</h1><p>위의 Prototype Chain 예제에서는 <code>A</code>와 <code>A_Prototype</code> 모두 겹치지 않는 property를 가지고 있다. 만약 이들 중 이름이 겹치는 property가 존재한다면 무슨 일이 일어날까?</p>
+<h1 id="Property-Shadowing"><a href="#Property-Shadowing" class="headerlink" title="Property Shadowing"></a>Property Shadowing</h1><p>위의 Prototype Chain 예제에서는 <code>A</code>와 <code>A_Prototype</code> 모두 겹치지 않는 property를 가지고 있다. 만약 이들 중 이름이 겹치는 property가 존재한다면 무슨 일이 일어날까?</p>
 <script src="//gist.github.com/99cb16fbee2e48e748c2.js?file=property_shadowing.js"></script>
 <p>JavaScript engine은 특정 property를 찾을 때 <strong>주어진 object부터</strong> Prototype Chain을 따라 상위로 올라가면서 property를 확인하고 가장 먼저 찾은 property를 가져온다. 이런 방식으로 동작하기 때문에 상위 object에 같은 이름의 property가 존재한다고 해도 무시하게 된다. 이것을 바로 Property Shadowing이라고 부른다.</p>
 <script src="//gist.github.com/99cb16fbee2e48e748c2.js?file=property_shadowing_example.js"></script>
@@ -154,7 +154,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 bestalign&nbsp;
+      &copy; 2017 bestalign&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
@@ -178,11 +178,11 @@ ga('send', 'pageview');
 <script src="/js/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
   </div>
 </body>
 </html>

@@ -27,7 +27,7 @@
   
   <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 <!-- Google Analytics -->
 <script type="text/javascript">
@@ -101,18 +101,18 @@ ga('send', 'pageview');
       
         <p>원문: <a href="http://www.programcreek.com/2014/05/top-10-mistakes-java-developers-make/" target="_blank" rel="external">http://www.programcreek.com/2014/05/top-10-mistakes-java-developers-make/</a></p>
 <p>다음글: <a href="/2015/09/02/top-10-mistakes-java-developers-make-2/" title="자바 프로그래머가 자주 실수하는 10가지 - 2">자바 프로그래머가 자주 실수하는 10가지 - 2</a></p>
-<h3 id="#1-_일반_배열을_ArrayList로_변환하기">#1. 일반 배열을 ArrayList로 변환하기</h3><p>보통 많은 개발자가 다음과 같이 일반 배열을 <code>ArrayList</code>로 변환한다:</p>
+<h3 id="1-일반-배열을-ArrayList로-변환하기"><a href="#1-일반-배열을-ArrayList로-변환하기" class="headerlink" title="#1. 일반 배열을 ArrayList로 변환하기"></a>#1. 일반 배열을 ArrayList로 변환하기</h3><p>보통 많은 개발자가 다음과 같이 일반 배열을 <code>ArrayList</code>로 변환한다:</p>
 <script src="//gist.github.com/f0b9adf2595105effeb3.js?file=convert-array-to-arraylist-wrong.java"></script>
 <a id="more"></a>
 <p><code>Arrays.asList()</code>는 <code>Arrays</code>의 private 정적 클래스인 <code>ArrayList</code>를 리턴한다. <code>java.util.ArrayList</code> 클래스와는 다른 클래스이다. <code>java.util.Arrays.ArrayList</code> 클래스는 <code>set()</code>, <code>get()</code>, <code>contains()</code> 매서드를 가지고 있지만 원소를 추가하는 매서드는 가지고 있지 않기 때문에 사이즈를 바꿀 수 없다. 진짜 <code>ArrayList</code>를 받기 위해서는 다음과 같이 변환하면 된다:</p>
 <script src="//gist.github.com/f0b9adf2595105effeb3.js?file=convert-array-to-arraylist-right.java"></script>
 <p><code>ArrayList</code>의 생성자는 <code>java.util.Arrays.ArrayList</code>의 상위(super) 클래스인 Collection type도 받아들일 수 있다.</p>
-<h3 id="#2-_일반_배열에_특정_값이_들어있는지_확인하기">#2. 일반 배열에 특정 값이 들어있는지 확인하기</h3><p>보통 이렇게 많이 확인한다:</p>
+<h3 id="2-일반-배열에-특정-값이-들어있는지-확인하기"><a href="#2-일반-배열에-특정-값이-들어있는지-확인하기" class="headerlink" title="#2. 일반 배열에 특정 값이 들어있는지 확인하기"></a>#2. 일반 배열에 특정 값이 들어있는지 확인하기</h3><p>보통 이렇게 많이 확인한다:</p>
 <script src="//gist.github.com/f0b9adf2595105effeb3.js?file=check-if-an-array-contains-a-value-wrong.java"></script>
 <p>이 코드는 동작하지만 list를 set으로 변환하는 것은 시간도 더 걸릴뿐더러 사실 할 필요가 없다. 대신에 다음과 같이 처리할 수 있다:</p>
 <script src="//gist.github.com/f0b9adf2595105effeb3.js?file=check-if-an-array-contains-a-value-right.java"></script>
 <p>첫번째 솔루션이 훨씬 읽기 편하다.</p>
-<h3 id="#3-_Loop에서_list의_원소를_제거하기">#3. Loop에서 list의 원소를 제거하기</h3><p>다음과 같이 Loop 안에서 원소를 제거한다고 하자:</p>
+<h3 id="3-Loop에서-list의-원소를-제거하기"><a href="#3-Loop에서-list의-원소를-제거하기" class="headerlink" title="#3. Loop에서 list의 원소를 제거하기"></a>#3. Loop에서 list의 원소를 제거하기</h3><p>다음과 같이 Loop 안에서 원소를 제거한다고 하자:</p>
 <script src="//gist.github.com/f0b9adf2595105effeb3.js?file=remove-an-element-from-a-list-inside-a-loop-wrong1.java"></script>
 <p>위의 코드에는 아주 심각한 문제가 있다. 원소가 삭제될 때, list의 사이즈가 줄어들면서 다른 원소들의 index도 바뀌어 버린다. 그래서 만약 loop 내에서 다수의 원소를 index를 사용해 삭제한다면 생각한대로 동작하지 않을 것이다.</p>
 <p>아마 반복자(iterator)를 사용하는 것이 바른 방법이고, foreach loop가 내부적으로 반복자를 사용한다는 것을 알고 있을지도 모른다. 하지만 사실 다음의 foreach loop에서도 올바르게 동작하지 않는다:</p>
@@ -121,9 +121,9 @@ ga('send', 'pageview');
 <p>다음의 코드는 제대로 동작한다:</p>
 <script src="//gist.github.com/f0b9adf2595105effeb3.js?file=remove-an-element-from-a-list-inside-a-loop-right.java"></script>
 <p>반드시 <code>.remove()</code>전에 <code>.next()</code>가 호출되어야 한다. 만약 foreach loop안에서 원소가 삭제된 뒤에 <code>.next()</code>가 호출된다면 컴파일러는 <code>ConcurrentModificationException</code>을 발생시킬 것이다. <code>ArrayList.iterator()</code>의 코드가 깊이 이해하는 데 도움이 될 것이다.</p>
-<h3 id="#4-_Hashtable_vs_HashMap">#4. Hashtable vs HashMap</h3><p>알고리즘적으로 봤을 때 Hashtable은 자료구조 이름이지만 Java에서의 이름은 사실 <code>HashMap</code>이다. <code>Hashtable</code>이 <code>HashMap</code>과 가장 다른 점은 바로 동기화(synchronized)라는 것이다. 그래서 대부분 <code>Hashtable</code>보다는 <code>HashMap</code>을 사용하는 것이 좋다.</p>
+<h3 id="4-Hashtable-vs-HashMap"><a href="#4-Hashtable-vs-HashMap" class="headerlink" title="#4. Hashtable vs HashMap"></a>#4. Hashtable vs HashMap</h3><p>알고리즘적으로 봤을 때 Hashtable은 자료구조 이름이지만 Java에서의 이름은 사실 <code>HashMap</code>이다. <code>Hashtable</code>이 <code>HashMap</code>과 가장 다른 점은 바로 동기화(synchronized)라는 것이다. 그래서 대부분 <code>Hashtable</code>보다는 <code>HashMap</code>을 사용하는 것이 좋다.</p>
 <p><a href="http://www.programcreek.com/2013/03/hashmap-vs-treemap-vs-hashtable-vs-linkedhashmap/" target="_blank" rel="external">HashMap vs. TreeMap vs. Hashtable vs. LinkedHashMap</a><br><a href="http://www.programcreek.com/2013/09/top-9-questions-for-java-map/" target="_blank" rel="external">Top 10 questions about Map</a></p>
-<h3 id="#5-_Collection의_Raw_Type_사용">#5. Collection의 Raw Type 사용</h3><p>Java에서는, <em>raw type</em>과 <em>unbounded wildcard type</em>이 쉽게 섞여서 함께 사용된다. Set을 예로 들어보면, <code>Set</code>은 raw type이고 <code>Set&lt;?&gt;</code>은 unbounded wildcard type이다.</p>
+<h3 id="5-Collection의-Raw-Type-사용"><a href="#5-Collection의-Raw-Type-사용" class="headerlink" title="#5. Collection의 Raw Type 사용"></a>#5. Collection의 Raw Type 사용</h3><p>Java에서는, <em>raw type</em>과 <em>unbounded wildcard type</em>이 쉽게 섞여서 함께 사용된다. Set을 예로 들어보면, <code>Set</code>은 raw type이고 <code>Set&lt;?&gt;</code>은 unbounded wildcard type이다.</p>
 <p>다음과 같은 raw type <code>List</code>를 파라미터로 사용하는 코드가 있다고 하자:</p>
 <script src="//gist.github.com/f0b9adf2595105effeb3.js?file=use-raw-type-of-collection.java"></script>
 <p>raw type collection을 사용하는 것은 타입 체크를 건너뛰기 때문에 안전하지 않다. <code>Set</code>, <code>Set&lt;?&gt;</code>, <code>Set&lt;Object&gt;</code> 사이에는 아주 큰 차이가 있다. 다음 글들을 읽는 걸 추천한다.</p>
@@ -173,7 +173,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 bestalign&nbsp;
+      &copy; 2017 bestalign&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
@@ -197,11 +197,11 @@ ga('send', 'pageview');
 <script src="/js/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
   </div>
 </body>
 </html>

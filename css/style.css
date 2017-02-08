@@ -1,3 +1,4 @@
+@import url("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 html,
 body,
 div,
@@ -93,7 +94,7 @@ input,
 button {
   margin: 0;
   padding: 0;
-  font: 20px 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font: 20px 'Spoqa Han Sans', 'Sans-serif';
 }
 input::-moz-focus-inner,
 button::-moz-focus-inner {
@@ -114,7 +115,7 @@ body,
 }
 body {
   background: #fff;
-  font: 20px 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font: 20px 'Spoqa Han Sans', 'Sans-serif';
   -webkit-text-size-adjust: 100%;
 }
 .outer {
@@ -257,7 +258,7 @@ a.article-title:hover,
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
-  margin: 0 20px;
+  margin: 0 30px;
   line-height: 1.4em;
 }
 .article-entry ul ul,
@@ -510,7 +511,7 @@ a.article-title:hover,
   padding: 10px 0;
 }
 .article-entry blockquote {
-  font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   font-size: 1.2em;
   color: #969896;
   border-left: 4px solid #ddd;
@@ -541,7 +542,7 @@ a.article-title:hover,
 .article-entry .caption {
   color: #939393;
   display: block;
-  font-size: 0.9em;
+  font-size: 0.7em;
   margin-top: 0.5em;
   position: relative;
   text-align: center;
@@ -758,7 +759,6 @@ a.article-title:hover,
 }
 #page-nav .current {
   color: #fff;
-  -webkit-border-radius: 18px;
   border-radius: 18px;
   background-color: #000;
 }
@@ -780,20 +780,20 @@ a.article-title:hover,
 .article-entry .highlight {
   margin: 0;
   font-size: 14px;
-  background: #23241f;
+  background: #f7f7f7;
   padding: 15px 0;
   overflow: auto;
-  color: #fff;
+  color: #333;
   line-height: 28px;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
-  color: #666;
-  font-size: 0.85em;
+  color: rgba(0,0,0,0.3);
+  font-size: 14px;
 }
 .article-entry pre,
 .article-entry code {
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace, '华文中宋';
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
 }
 .article-entry code {
   background: #f2f2f2;
@@ -813,7 +813,7 @@ a.article-title:hover,
 .article-entry .highlight pre {
   border: none;
   margin: 0;
-  padding: 0 20px;
+  padding: 0 10px 0 15px;
 }
 .article-entry .highlight table {
   margin: 0;
@@ -855,7 +855,7 @@ a.article-title:hover,
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace, '华文中宋';
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {
@@ -905,7 +905,7 @@ pre .regexp,
 pre .alias .keyword,
 pre .literal,
 pre .hexcolor {
-  color: #ae81ff;
+  color: #0086b3;
 }
 pre .tag .value,
 pre .code,
@@ -979,7 +979,7 @@ pre .tex .command,
 pre .prompt,
 pre .link_label,
 pre .link_url {
-  color: #e6db74;
+  color: #183691;
 }
 pre .comment,
 pre .javadoc,
@@ -992,7 +992,7 @@ pre .deletion,
 pre .shebang,
 pre .apache .sqbracket,
 pre .tex .formula {
-  color: #75715e;
+  color: #969896;
 }
 pre .coffeescript .javascript,
 pre .javascript .xml,
@@ -1053,14 +1053,13 @@ pre .php .xml {
 }
 .fancybox-skin {
   padding: 0 !important;
-  -webkit-border-radius: 0;
   border-radius: 0;
-  font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
 }
 .fancybox-skin .fancybox-title .child {
   background: none;
   font-weight: 400;
   font-size: 20px;
-  font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   text-shadow: 1px 3px 3px rgba(0,0,0,0.5);
 }
