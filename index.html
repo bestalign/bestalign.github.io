@@ -62,6 +62,60 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-favor-use-of-standard-exceptions" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/favor-use-of-standard-exceptions/">Method Parameter and Exception Handling</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2017/04/12/favor-use-of-standard-exceptions/" class="article-date">
+  <time datetime="2017-04-13T06:18:46.000Z" itemprop="datePublished">2017-04-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+      
+        <div class="article-comment-link-wrap">
+          <a href="http://bestalign.github.io/2017/04/12/favor-use-of-standard-exceptions/#disqus_thread" class="article-comment-link">Comments</a>
+        </div>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br/><br><img src="/2017/04/12/favor-use-of-standard-exceptions/NullOrZero.jpg" alt="&nbsp;" title="&nbsp;"></p>
+<p>오늘 회사에서 코드리뷰를 하다가 나온 내용을 하나 올려본다. <del>대단한 내용은 아니고 어떻게든 포스팅 하나정도 해야할 것 같아서..</del></p>
+<p>메소드에 인스턴스를 하나 넘겨주는데 값을 먼저 확인해서 <code>null</code>일 경우 <code>NullPointerException</code>을 던지는 코드였다.</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/04/12/favor-use-of-standard-exceptions/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Effective-Java/">Effective Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Exception/">Exception</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Method-Parameter/">Method Parameter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/메소드-파라미터/">메소드 파라미터</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/예외처리/">예외처리</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/이펙티브-자바/">이펙티브 자바</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/자바/">자바</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+</article>
+
+
+    
       <article id="post-2016-summary" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -535,61 +589,6 @@ ga('send', 'pageview');
     <footer class="article-footer">
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flux/">Flux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
-
-    </footer>
-  
-  </div>
-  
-</article>
-
-
-    
-      <article id="post-understanding-loose-typing-in-javascript" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/understanding-loose-typing-in-javascript/">자바스크립트의 느슨한 타입(Loose Typing) 이해하기</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2015/10/21/understanding-loose-typing-in-javascript/" class="article-date">
-  <time datetime="2015-10-22T02:41:39.000Z" itemprop="datePublished">2015-10-21</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-
-      
-        <div class="article-comment-link-wrap">
-          <a href="http://bestalign.github.io/2015/10/21/understanding-loose-typing-in-javascript/#disqus_thread" class="article-comment-link">Comments</a>
-        </div>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>원문: <a href="http://blog.jeremymartin.name/2008/03/understanding-loose-typing-in.html">http://blog.jeremymartin.name/2008/03/understanding-loose-typing-in.html</a></p>
-<p><a href="http://jstherightway.org/ko-kr/">JavaScript: The Right Way</a>에는 부분적으로 번역되어있기 때문에 전문을 번역해보았다. 대략 8년 전의 글로 아주 오래된 글이지만 지금 보기에도 여전히 좋은 내용이다. 다만 현 ECMAScript와 다른 부분이 있어서 그 부분은 직접 수정하였다.</p>
-<hr>
-<p>많은 Front-end 개발자들에게 JavaScript는 처음으로 접하는 인터프리터 언어이자 스크립트 언어이다. 이 개발자들에게 느슨한 타입의 개념은 아주 자연스러운 것이다. 하지만 모던 웹 애플리케이션에 대한 수요가 폭발적으로 증가함에 따라 클라이언트 측 기술에 발을 디딘 Back-end 개발자들도 점점 많아지고 있는데, C#이나 Java 같은 강한 타입의 언어에 친숙한 이 사람들에게는 느슨한 타입의 변수들이 주는 자유로움이나 잠재적인 위험들이 익숙하지 않다.<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/21/understanding-loose-typing-in-javascript/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-  
-    <footer class="article-footer">
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/loose-typing/">loose typing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/strong-typing/">strong typing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/강력한-타입/">강력한 타입</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/느슨한-타입/">느슨한 타입</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/자바스크립트/">자바스크립트</a></li></ul>
 
     </footer>
   
