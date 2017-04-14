@@ -14,7 +14,7 @@
 <meta property="og:description" content="오늘 회사에서 코드리뷰를 하다가 나온 내용을 하나 올려본다. 대단한 내용은 아니고 어떻게든 포스팅 하나정도 해야할 것 같아서..
 메소드에 인스턴스를 하나 넘겨주는데 값을 먼저 확인해서 null일 경우 NullPointerException을 던지는 코드였다.">
 <meta property="og:image" content="http://bestalign.github.io/2017/04/12/favor-use-of-standard-exceptions/NullOrZero.jpg">
-<meta property="og:updated_time" content="2017-04-13T06:19:11.000Z">
+<meta property="og:updated_time" content="2017-04-14T08:27:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Method Parameter and Exception Handling">
 <meta name="twitter:description" content="오늘 회사에서 코드리뷰를 하다가 나온 내용을 하나 올려본다. 대단한 내용은 아니고 어떻게든 포스팅 하나정도 해야할 것 같아서..
@@ -105,16 +105,16 @@ ga('send', 'pageview');
 <script src="//gist.github.com/779129497ac3116df54f53eaf415587e.js?file=NPE.java"></script>
 <p>넘겨받은 값이 원하는 조건에 맞지 않아서 예외처리를 하는 코드여서 <code>NullPointerException</code>보다는 <code>IllegalArgumentException</code>이 더 어울리지 않냐고 코멘트를 달았는데, 그 친구는 다른 대꾸없이 <em><a href="https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/0321356683" target="_blank" rel="external">Effective Java 2/E</a> - item 60</em> 의 내용을 답변으로 달았다. 간단히 아래와 같다.</p>
 <ul>
-<li>IllegalArgumentException: null은 아니지만 값이 적절하지 않을 때</li>
+<li>IllegalArgumentException: <code>null</code>은 아니지만 값이 적절하지 않을 때</li>
 <li>IllegalStateException: 객체의 상태가 메소드를 호출하기에 적절하지 않을 때. 예를들어 객체가 제대로 초기화 되기 전에 메소드를 호출했을 경우</li>
-<li>NullPointerException: null를 허용하지 않는데 받았을 때</li>
-<li>IndexOutOfBoundsException: 인덱스 값이 [Array나 List의] 범위에 들어가지 않을 때</li>
+<li>NullPointerException: <code>null</code>을 허용하지 않는데 받았을 때</li>
+<li>IndexOutOfBoundsException: 인덱스 값이 [<code>Array</code>나 <code>List</code>의] 범위에 들어가지 않을 때</li>
 <li>ConcurrentModificationException: 동시성(Concurrency)을 지원하지 않는데 동시에 객체를 수정하려는 시도가 있을 때</li>
 <li>UnsupportedOperationException: 객체가 지원하는 메소드가 아닐 때</li>
 </ul>
 <p>두 개를 제외한 다른 예외는 모두 조건이 아주 명료하다. <code>NullPointerException</code>과 <code>IllegalArgumentException</code>만 제대로 구분하면 될 것 같다. <del>역시 <code>null</code>은 태어났으면 안됐다.. <a href="https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare" target="_blank" rel="external">Null References: The Billion Dollar Mistake</a></del></p>
 <script src="//gist.github.com/779129497ac3116df54f53eaf415587e.js?file=IAE.java"></script>
-<p>위와 같이 논리적으로 값이 음수가 되면 안 될 경우에는 <code>IllegalArgumentException</code>을 된다.</p>
+<p>위와 같이 논리적으로 값이 음수가 되면 안 될 경우에는 <code>IllegalArgumentException</code>을 사용하면 된다.</p>
 
       
     </div>
