@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bestalign.github.io/"/>
-  <updated>2017-04-14T08:27:53.000Z</updated>
+  <updated>2017-05-07T11:43:35.000Z</updated>
   <id>http://bestalign.github.io/</id>
   
   <author>
@@ -16,36 +16,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Method Parameter and Exception Handling</title>
-    <link href="http://bestalign.github.io/2017/04/12/favor-use-of-standard-exceptions/"/>
-    <id>http://bestalign.github.io/2017/04/12/favor-use-of-standard-exceptions/</id>
-    <published>2017-04-13T06:18:46.000Z</published>
-    <updated>2017-04-14T08:27:53.000Z</updated>
+    <title>PowerMock 사용하기 1</title>
+    <link href="http://bestalign.github.io/2017/05/07/intro-powermock-1/"/>
+    <id>http://bestalign.github.io/2017/05/07/intro-powermock-1/</id>
+    <published>2017-05-07T11:43:35.000Z</published>
+    <updated>2017-05-07T11:43:35.000Z</updated>
     
-    <content type="html"><![CDATA[<p><br><br><img src="/2017/04/12/favor-use-of-standard-exceptions/NullOrZero.jpg" alt="&nbsp;" title="&nbsp;"></p>
-<p>오늘 회사에서 코드리뷰를 하다가 나온 내용을 하나 올려본다. <del>대단한 내용은 아니고 어떻게든 포스팅 하나정도 해야할 것 같아서..</del></p>
-<p>메소드에 인스턴스를 하나 넘겨주는데 값을 먼저 확인해서 <code>null</code>일 경우 <code>NullPointerException</code>을 던지는 코드였다.</p>
+    <content type="html"><![CDATA[<p><br><br><img src="/2017/05/07/intro-powermock-1/powermock-logo.png" alt="&nbsp;" title="&nbsp;"></p>
+<p>Mockito가 지원하는 기능은 간단한 기능의 유닛테스트에는 충분하지만 코드 구조가 복잡할 경우 테스트하기에 힘든 부분이 많다. 혹은 반대로, 테스트를 위해서 좋은 코드 구조를 포기해야만 하는 경우도 있다. PowerMock은 그런 문제들을 피해 유닛테스트를 할 수 있게 도와준다. 이 글은 <a href="https://github.com/powermock/powermock/wiki" target="_blank" rel="external">PowerMock의 Wiki</a>를 보고 나름대로 정리한 것이다.</p>
+<p>이 글의 모든 예제 코드는 JUnit v4.12, PowerMock v1.6.6, Mockito v1.10.+ 을 기준으로 작성되었다. 추가로 PowerMock v1.6.6 기준으로 Mockito v2나 EasyMock도 지원한다. 공식 위키에 훨씬 더 자세한 내용이 있다.</p>
 <a id="more"></a>
-<script src="//gist.github.com/779129497ac3116df54f53eaf415587e.js?file=NPE.java"></script>
-<p>넘겨받은 값이 원하는 조건에 맞지 않아서 예외처리를 하는 코드여서 <code>NullPointerException</code>보다는 <code>IllegalArgumentException</code>이 더 어울리지 않냐고 코멘트를 달았는데, 그 친구는 다른 대꾸없이 <em><a href="https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/0321356683" target="_blank" rel="external">Effective Java 2/E</a> - item 60</em> 의 내용을 답변으로 달았다. 간단히 아래와 같다.</p>
-<ul>
-<li>IllegalArgumentException: <code>null</code>은 아니지만 값이 적절하지 않을 때</li>
-<li>IllegalStateException: 객체의 상태가 메소드를 호출하기에 적절하지 않을 때. 예를들어 객체가 제대로 초기화 되기 전에 메소드를 호출했을 경우</li>
-<li>NullPointerException: <code>null</code>을 허용하지 않는데 받았을 때</li>
-<li>IndexOutOfBoundsException: 인덱스 값이 [<code>Array</code>나 <code>List</code>의] 범위에 들어가지 않을 때</li>
-<li>ConcurrentModificationException: 동시성(Concurrency)을 지원하지 않는데 동시에 객체를 수정하려는 시도가 있을 때</li>
-<li>UnsupportedOperationException: 객체가 지원하는 메소드가 아닐 때</li>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>다음과 같이 <code>build.gradle</code>에 패키지를 추가하고 Gradle sync를 실행하자. 순서대로 JUnit v4.12,  PowerMock v1.6.6, 그리고 PowerMock v1.6.6과 호환되는 Mockito 버전(작성기준 v1.10.19)을 설치한다. </p>
+<script src="//gist.github.com/c2b215299fa2babe05d66a90bebcab09.js?file=00-build.gradle"></script>
+<p>또, PowerMock을 JUnit test에 사용하기 위해 <code>@RunWith(PowerMockRunner.class)</code> Annotation을 원하는 Test class에 추가해주자.</p>
+<script src="//gist.github.com/c2b215299fa2babe05d66a90bebcab09.js?file=01-setup-runner.java"></script>
+<h2 id="캡슐화-우회-Bypass-Encapsulation"><a href="#캡슐화-우회-Bypass-Encapsulation" class="headerlink" title="캡슐화 우회 (Bypass Encapsulation)"></a>캡슐화 우회 (Bypass Encapsulation)</h2><p>캡슐화 우회를 위한 메소드들은 모두 <code>org.powermock.reflect.Whitebox</code> 패키지에 정의되어 있다. 패키지의 이름에서도 알 수 있듯이 모든 기능은 리플랙션(reflection)으로 만들어졌다. 사실 이 패키지를 사용하지 않고도 직접 리플랙션 코드로 private 필드나 메소드에 접근할 수 있다. 하지만 역시 이런 세세한 기능을 직접 만드려면 수고가 많이 들기 때문에 Powermock을 사용하는 것을 추천한다.</p>
+<h3 id="Private-field-access"><a href="#Private-field-access" class="headerlink" title="Private field access"></a>Private field access</h3><p>Getter나 setter가 없어서 private 필드에 접근이 불가능 할 때 <code>setInternalState()</code>/<code>getInternalState()</code>메소드를 이용하면 접근이 가능하다.</p>
+<script src="//gist.github.com/c2b215299fa2babe05d66a90bebcab09.js?file=02-private-field.java"></script>
+<p><strong>이름</strong> 혹은 <strong>타입</strong>으로 특정 private 필드에 접근한다. 필드 타입으로 접근하면 코드를 짤 때는 손쉽지만, 따로 주석을 달아놓지 않는 이상 나중에 테스트 코드를 수정할 때 어느 필드에 접근하는 건지 바로 알기 어렵다는 단점이 있다. 또, 같은 타입의 필드가 여러개 있을 경우 타입으로 접근하는 것이 불가능하다. 코드가 조금 더 길어지더라도 필드 이름으로 접근하는 것이 길게 봤을 때 좋다.</p>
+<h3 id="Private-method-invocation"><a href="#Private-method-invocation" class="headerlink" title="Private method invocation"></a>Private method invocation</h3><p><code>invokeMethod()</code>로 private 메소드를 호출할 수 있다.</p>
+<script src="//gist.github.com/c2b215299fa2babe05d66a90bebcab09.js?file=03-private-method.java"></script>
+<p>private 필드를 <strong>이름</strong> 혹은 <strong>타입</strong>으로 찾는 것처럼, <code>invokeMethod()</code>는 <strong>이름</strong> 또는 <strong>메소드 파라미터 타입</strong>으로 메소드를 찾는다. 같은 파라미터 타입을 가진 메소드가 또 있으면 호출이 불가능하므로 이름까지 꼭 적어주는 편이 좋다.</p>
+<h3 id="Super-class’-private-field-access-method-invocation"><a href="#Super-class’-private-field-access-method-invocation" class="headerlink" title="Super class’ private field access / method invocation"></a>Super class’ private field access / method invocation</h3><p>심지어 오버라이드(override)되어서 직접 접근할 수 없는 부모 클래스의 필드나 메소드에도 접근이 가능하다. 위의 예제들과 똑같이 <code>setInternalState()</code>/<code>getInternalState()</code>/<code>invokeMethod()</code>메소드를 사용한다.</p>
+<script src="//gist.github.com/c2b215299fa2babe05d66a90bebcab09.js?file=04-super-private-field-method.java"></script>
+<p>기존과 똑같이 사용하지만 접근하려는 특정 클래스 타입을 추가 파라미터로 넣어주면 된다. 일반적으로 오버라이드된 필드나 메소드를 접근할 일은 거의 없어서 그냥 이런 기능이 있다 정도만 알아두면 될 듯하다.</p>
+<h3 id="Private-constructor-invocation"><a href="#Private-constructor-invocation" class="headerlink" title="Private constructor invocation"></a>Private constructor invocation</h3><p>자주 사용할 일은 없겠지만 private 생성자를 직접 호출하는 것도 가능하다.</p>
+<script src="//gist.github.com/c2b215299fa2babe05d66a90bebcab09.js?file=05-private-constructor.java"></script>
+<h2 id="관련글"><a href="#관련글" class="headerlink" title="관련글"></a>관련글</h2><ul>
+<li><a href="/2016/07/08/intro-mockito-1/" title="Mockito 사용하기 1">Mockito 사용하기 1</a></li>
+<li><a href="/2016/07/10/intro-mockito-2/" title="Mockito 사용하기 2">Mockito 사용하기 2</a>
+</li>
 </ul>
-<p>두 개를 제외한 다른 예외는 모두 조건이 아주 명료하다. <code>NullPointerException</code>과 <code>IllegalArgumentException</code>만 제대로 구분하면 될 것 같다. <del>역시 <code>null</code>은 태어났으면 안됐다.. <a href="https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare" target="_blank" rel="external">Null References: The Billion Dollar Mistake</a></del></p>
-<script src="//gist.github.com/779129497ac3116df54f53eaf415587e.js?file=IAE.java"></script>
-<p>위와 같이 논리적으로 값이 음수가 되면 안 될 경우에는 <code>IllegalArgumentException</code>을 사용하면 된다.</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;br/&gt;&lt;br&gt;&lt;img src=&quot;/2017/04/12/favor-use-of-standard-exceptions/NullOrZero.jpg&quot; alt=&quot;&amp;nbsp;&quot; title=&quot;&amp;nbsp;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;오늘 회사에서 코드리뷰를 하다가 나온 내용을 하나 올려본다. &lt;del&gt;대단한 내용은 아니고 어떻게든 포스팅 하나정도 해야할 것 같아서..&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;메소드에 인스턴스를 하나 넘겨주는데 값을 먼저 확인해서 &lt;code&gt;null&lt;/code&gt;일 경우 &lt;code&gt;NullPointerException&lt;/code&gt;을 던지는 코드였다.&lt;/p&gt;
+      &lt;p&gt;&lt;br/&gt;&lt;br&gt;&lt;img src=&quot;/2017/05/07/intro-powermock-1/powermock-logo.png&quot; alt=&quot;&amp;nbsp;&quot; title=&quot;&amp;nbsp;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Mockito가 지원하는 기능은 간단한 기능의 유닛테스트에는 충분하지만 코드 구조가 복잡할 경우 테스트하기에 힘든 부분이 많다. 혹은 반대로, 테스트를 위해서 좋은 코드 구조를 포기해야만 하는 경우도 있다. PowerMock은 그런 문제들을 피해 유닛테스트를 할 수 있게 도와준다. 이 글은 &lt;a href=&quot;https://github.com/powermock/powermock/wiki&quot;&gt;PowerMock의 Wiki&lt;/a&gt;를 보고 나름대로 정리한 것이다.&lt;/p&gt;
+&lt;p&gt;이 글의 모든 예제 코드는 JUnit v4.12, PowerMock v1.6.6, Mockito v1.10.+ 을 기준으로 작성되었다. 추가로 PowerMock v1.6.6 기준으로 Mockito v2나 EasyMock도 지원한다. 공식 위키에 훨씬 더 자세한 내용이 있다.&lt;/p&gt;
     
     </summary>
     
@@ -54,19 +62,17 @@
     
       <category term="Java" scheme="http://bestalign.github.io/tags/Java/"/>
     
+      <category term="Mockito" scheme="http://bestalign.github.io/tags/Mockito/"/>
+    
+      <category term="Powermock" scheme="http://bestalign.github.io/tags/Powermock/"/>
+    
+      <category term="Unit" scheme="http://bestalign.github.io/tags/Unit/"/>
+    
+      <category term="Test" scheme="http://bestalign.github.io/tags/Test/"/>
+    
+      <category term="유닛 테스트" scheme="http://bestalign.github.io/tags/%EC%9C%A0%EB%8B%9B-%ED%85%8C%EC%8A%A4%ED%8A%B8/"/>
+    
       <category term="자바" scheme="http://bestalign.github.io/tags/%EC%9E%90%EB%B0%94/"/>
-    
-      <category term="Effective Java" scheme="http://bestalign.github.io/tags/Effective-Java/"/>
-    
-      <category term="Method Parameter" scheme="http://bestalign.github.io/tags/Method-Parameter/"/>
-    
-      <category term="Exception" scheme="http://bestalign.github.io/tags/Exception/"/>
-    
-      <category term="이펙티브 자바" scheme="http://bestalign.github.io/tags/%EC%9D%B4%ED%8E%99%ED%8B%B0%EB%B8%8C-%EC%9E%90%EB%B0%94/"/>
-    
-      <category term="메소드 파라미터" scheme="http://bestalign.github.io/tags/%EB%A9%94%EC%86%8C%EB%93%9C-%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0/"/>
-    
-      <category term="예외처리" scheme="http://bestalign.github.io/tags/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/"/>
     
   </entry>
   
