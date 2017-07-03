@@ -62,6 +62,59 @@ ga('send', 'pageview');
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-redux-hot-reloading-and-time-travel-debugging" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/27/redux-hot-reloading-and-time-travel-debugging/">핫 리로딩(hot reloading)과 시간 여행 디버깅(time travel debugging)이 도대체 무엇일까?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2015/10/27/redux-hot-reloading-and-time-travel-debugging/" class="article-date">
+  <time datetime="2015-10-27T07:53:31.000Z" itemprop="datePublished">2015-10-27</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/번역/">번역</a>
+  </div>
+
+      
+        <div class="article-comment-link-wrap">
+          <a href="http://bestalign.github.io/2015/10/27/redux-hot-reloading-and-time-travel-debugging/#disqus_thread" class="article-comment-link">Comments</a>
+        </div>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>원문: <a href="https://code-cartoons.com/hot-reloading-and-time-travel-debugging-what-are-they-3c8ed2812f35">https://code-cartoons.com/hot-reloading-and-time-travel-debugging-what-are-they-3c8ed2812f35</a></p>
+<p>사람들이 열광하는 Redux의 두 가지 기능은 핫 리로딩(hot reloading)과 시간 여행 디버깅(time travel debugging)이다. 이 둘은 과연 무엇일까?<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/10/27/redux-hot-reloading-and-time-travel-debugging/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flux/">Flux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hot-Reloading/">Hot Reloading</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Time-Travel-Debugging/">Time Travel Debugging</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+</article>
+
+
+    
       <article id="post-cartoon-intro-to-redux" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -538,58 +591,6 @@ ga('send', 'pageview');
     <footer class="article-footer">
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Inheritance/">Inheritance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/property-shadowing/">property shadowing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype-chain/">prototype chain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/상속/">상속</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/자바스크립트/">자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/프로토타입-체인/">프로토타입 체인</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/프로퍼티-쉐도잉/">프로퍼티 쉐도잉</a></li></ul>
-
-    </footer>
-  
-  </div>
-  
-</article>
-
-
-    
-      <article id="post-Prototype-Chain" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/28/Prototype-Chain/">Prototype Chain and Property Shadowing</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2015/07/28/Prototype-Chain/" class="article-date">
-  <time datetime="2015-07-28T07:29:53.000Z" itemprop="datePublished">2015-07-28</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-
-      
-        <div class="article-comment-link-wrap">
-          <a href="http://bestalign.github.io/2015/07/28/Prototype-Chain/#disqus_thread" class="article-comment-link">Comments</a>
-        </div>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Prototype-Chain"><a href="#Prototype-Chain" class="headerlink" title="Prototype Chain"></a>Prototype Chain</h1><p><strong>JavaScript의 Prototype Chain은 <em>[[Prototype]]</em>으로 이루어지는 object들의 연결을 말한다.</strong> JavaScript의 Primitive Type을 제외한 모든 object는 <em>[[Prototype]]</em>을 가지고 있으며 그 연결된 Prototype Chain은 마치 Linked List 처럼 생겼다. Prototype Chain의 마지막은 항상 <code>Object.prototype</code>에서 끝나며, <code>Object.prototype</code>의 <em>[[Prototype]]</em>은 일반적인 Linked List처럼 null로 끝난다.<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/07/28/Prototype-Chain/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-  
-    <footer class="article-footer">
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/property-shadowing/">property shadowing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype-chain/">prototype chain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/자바스크립트/">자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/프로토타입-체인/">프로토타입 체인</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/프로퍼티-쉐도잉/">프로퍼티 쉐도잉</a></li></ul>
 
     </footer>
   
