@@ -9,6 +9,3 @@ RUN npm install -g gatsby-cli
 COPY ./package.json /app
 COPY ./package-lock.json /app
 RUN npm install
-
-# # Run gatsby develop server
-# CMD gatsby develop -H 0.0.0.0
