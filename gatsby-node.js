@@ -53,7 +53,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           query postQuery ($category: String!){
             allMarkdownRemark(
               sort: { fields: [frontmatter___date], order: ASC }
-              filter: {frontmatter: {category: {eq: $category}}}
+              filter: {frontmatter: {draft: {ne: true}, category: {eq: $category}}}
               limit: 1000
             ) {
               nodes {
@@ -156,6 +156,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       category: String
       description: String
       date: Date @dateformat
+      draft: Boolean
     }
 
     type Fields {
