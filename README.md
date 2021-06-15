@@ -16,11 +16,11 @@
 1.  **📦 Create and Run the Container.**
 
     ```shell
-    chmod +x docker-setup.sh
-    chmod +x docker-container-start.sh
+    chmod +x *.sh
 
     ./docker-setup.sh
     ./docker-container-start.sh
+    ./gatsby-start.sh
     ```
 
     Your site is now running at `http://localhost:8000`!
