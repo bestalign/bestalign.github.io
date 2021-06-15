@@ -6,10 +6,9 @@ WORKDIR /app
 RUN npm install -g gatsby-cli
 
 # Install required packages
-# This is required to install all dependencies while the container is being built
 COPY ./package.json /app
 COPY ./package-lock.json /app
 RUN npm install
 
-# Run gatsby develop server
-CMD gatsby develop -H 0.0.0.0
+# # Run gatsby develop server
+# CMD gatsby develop -H 0.0.0.0
