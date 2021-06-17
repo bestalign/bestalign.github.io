@@ -29,5 +29,7 @@
 
 1.  **✍️ Write stuff!.**
 
-    Go to `/content/blog` and duplicate `/content/blog/_template/index.md`
+    For blog contents, go to `/content/blog` and duplicate `/content/blog/_template/index.md`
+    For TIL contents, go to `/content/til` and duplicate `/content/til/_template/index.md`
+
     Fill out the metadata and write stuff!
