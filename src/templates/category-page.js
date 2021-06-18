@@ -19,8 +19,10 @@ const CategoryPageTemplate = ({data, location, pageContext}) => {
       />
       <Nav categories={data.site.siteMetadata.categories}/>
       <hr />
-      <h6>{pageContext.categoryDescription}</h6>
-      <ol style={{ listStyle: `none` }}>
+      <h6 className="category-description">{pageContext.categoryDescription}</h6>
+
+      <hr />
+      <ol className="post-list" style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 

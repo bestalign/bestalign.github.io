@@ -33,6 +33,7 @@ const Index = ({ data, location }) => {
         </Link>
       </section>
 
+      <hr />
       <h6>최신글</h6>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
