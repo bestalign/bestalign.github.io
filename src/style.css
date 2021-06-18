@@ -322,7 +322,7 @@ section.icons a:hover {
 }
 
 .blog-post header p {
-  font-size: var(--fontSize-2);
+  font-size: var(--fontSize-1);
   font-family: var(--font-heading);
 }
 

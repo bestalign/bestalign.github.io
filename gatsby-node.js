@@ -156,6 +156,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       category: String
       description: String
       date: Date @dateformat
+      updated: Date @dateformat
       draft: Boolean
     }
 
