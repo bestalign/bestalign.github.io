@@ -2,9 +2,7 @@
 title: 자바 프로그래머가 자주 실수 하는 10가지 - 1
 date: 2015-08-31 21:30:49
 category: translation
-tags:
-  - Java
-  - mistake
+tags: ["Java", "mistake"]
 redirect_from:
 	- /2015/08/31/top-10-mistakes-java-developers-make-1/
 ---

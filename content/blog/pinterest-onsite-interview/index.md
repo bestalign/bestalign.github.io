@@ -1,9 +1,7 @@
 ---
 title: 핀터레스트 인터뷰 후기
 category: everydaylife
-tags:
-  - interview
-  - pinterest
+tags: ["interview", "pinterest"]
 date: 2016-04-25 01:33:58
 redirect_from:
   - /2016/04/25/pinterest-onsite-interview/

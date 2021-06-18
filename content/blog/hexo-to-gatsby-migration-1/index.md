@@ -1,6 +1,7 @@
 ---
 title: Hexo에서 Gatsby로 플랫폼 이전하기 1
 category: dev
+tags: ["gatsby", "migration"]
 date: 2021-06-11 16:58:08
 ---
 

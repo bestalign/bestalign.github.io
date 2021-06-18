@@ -1,9 +1,7 @@
 ---
 title: 2015년 블로그 결산
 category: everydaylife
-tags:
-  - blog
-  - retrospective
+tags: ["blog", "retrospective"]
 date: 2016-01-02 17:57:24
 redirect_from:
   - /2016/01/02/2015-summary/

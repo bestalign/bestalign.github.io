@@ -1,11 +1,7 @@
 ---
 title: JavaScript 상속
 category: dev
-tags:
-  - JavaScript
-  - Inheritance
-  - prototype chain
-  - property shadowing
+tags: ["JavaScript", "Inheritance", "prototype chain", "property shadowing"]
 date: 2015-08-02 19:41:00
 redirect_from:
   - /2015/08/02/JavaScript-Inheritance/

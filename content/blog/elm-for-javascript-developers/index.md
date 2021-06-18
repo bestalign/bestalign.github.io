@@ -1,9 +1,7 @@
 ---
 title: JavaScript 개발자를 위한 Elm
 category: translation
-tags:
-  - JavaScript
-  - Elm
+tags: ["JavaScript", "Elm"]
 date: 2015-11-28 02:32:38
 redirect_from:
   - /2015/11/28/elm-for-javascript-developers/

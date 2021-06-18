@@ -25,6 +25,11 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          {post.frontmatter.tags && (
+            <span>Tags: {post.frontmatter.tags.map (tag => {
+              return <span className="tag">{tag}</span>
+            })}</span>
+          )}
           <p>{post.frontmatter.date}{post.frontmatter.updated != null && `; updated on ` + post.frontmatter.updated}</p>
         </header>
         <section
@@ -92,6 +97,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         updated(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

@@ -157,6 +157,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       date: Date @dateformat
       updated: Date @dateformat
+      tags: [String]
       draft: Boolean
     }
 

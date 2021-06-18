@@ -1,12 +1,7 @@
 ---
 title: 핫 리로딩(hot reloading)과 시간 여행 디버깅(time travel debugging)이 도대체 무엇일까?
 category: translation
-tags:
-  - Redux
-  - JavaScript
-  - Flux
-  - Hot Reloading
-  - Time Travel Debugging
+tags: ["Redux", "JavaScript", "Flux", "Hot Reloading", "Time Travel Debugging"]
 date: 2015-10-27 00:53:31
 redirect_from:
   - /2015/10/27/redux-hot-reloading-and-time-travel-debugging/

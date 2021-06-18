@@ -1,11 +1,7 @@
 ---
 title: Lexical Scope and Dynamic Scope
 category: dev
-tags:
-  - JavaScript
-  - lexical scope
-  - lexical
-  - scope
+tags: ["JavaScript", "lexical scope", "lexical", "scope"]
 date: 2015-07-12 20:33:56
 redirect_from:
   - /2015/07/12/Lexical-Scope-and-Dynamic-Scope/

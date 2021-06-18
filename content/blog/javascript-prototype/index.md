@@ -1,12 +1,7 @@
 ---
 title: JavaScript Prototype
 category: dev
-tags:
-  - JavaScript
-  - class
-  - prototype
-  - object
-  - instance
+tags: ["JavaScript", "class", "prototype", "object", "instance"]
 date: 2015-07-07 02:27:32
 redirect_from:
   - /2015/07/07/JavaScript-Prototype/

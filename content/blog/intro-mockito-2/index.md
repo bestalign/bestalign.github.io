@@ -1,10 +1,7 @@
 ---
 title: Mockito 사용하기 2
 category: dev
-tags:
-  - Java
-  - Unit Test
-  - Mockito
+tags: ["Java", "Unit Test", "Mockito"]
 date: 2016-07-10 02:18:23
 redirect_from:
   - /2016/07/10/intro-mockito-2/

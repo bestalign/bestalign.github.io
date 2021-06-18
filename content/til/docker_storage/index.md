@@ -1,8 +1,7 @@
 ---
 title: 도커 스토리지 (Docker Storage)
 category: til
-tags:
-  - docker
+tags: ["Docker"]
 date: 2021-06-16 16:21:37 
 updated: 2021-06-17 12:34:26
 ---

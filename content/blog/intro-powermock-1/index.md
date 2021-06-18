@@ -1,11 +1,7 @@
 ---
 title: PowerMock 사용하기 1
 category: dev
-tags:
-  - Java
-  - Mockito
-  - PowerMock
-  - Unit Test
+tags: ["Java", "Mockito", "PowerMock", "Unit Test"]
 date: 2017-05-07 04:43:35
 redirect_from:
   - /2017/05/07/intro-powermock-1/

@@ -1,10 +1,7 @@
 ---
 title: Flux로의 카툰 안내서
 category: translation
-tags:
-  - Flux
-  - JavaScript
-  - React
+tags: ["Flux", "JavaScript", "React"]
 date: 2015-10-06 02:27:37
 redirect_from:
   - /2015/10/06/cartoon-guide-to-flux/

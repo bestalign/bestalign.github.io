@@ -1,12 +1,7 @@
 ---
 title: HashMap vs. TreeMap vs. Hashtable vs. LinkedHashMap
 category: translation
-tags:
-  - Java
-  - HashMap
-  - TreeMap
-  - Hashtable
-  - LinkedHashMap
+tags: ["Java", "HashMap", "TreeMap", "Hashtable", "LinkedHashMap"]
 date: 2015-09-20 20:53:16
 redirect_from:
 	- /2015/09/20/Java-Map-types-comparison/

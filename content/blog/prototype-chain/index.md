@@ -1,10 +1,7 @@
 ---
 title: Prototype Chain and Property Shadowing
 category: dev
-tags:
-  - JavaScript
-  - prototype chain
-  - property shadowing
+tags: ["JavaScript", "prototype chain", "property shadowing"]
 date: 2015-07-28 00:29:53
 redirect_from:
   - /2015/07/28/Prototype-Chain/

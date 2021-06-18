@@ -1,11 +1,7 @@
 ---
 title: Redux로의 카툰 안내서
 category: translation
-tags:
-  - JavaScript
-  - Redux
-  - Flux
-  - React
+tags: ["JavaScript", "Redux", "Flux", "React"]
 date: 2015-10-26 00:10:58
 redirect_from:
   - /2015/10/26/cartoon-intro-to-redux/

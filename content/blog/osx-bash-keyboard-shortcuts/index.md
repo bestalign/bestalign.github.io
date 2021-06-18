@@ -1,13 +1,7 @@
 ---
 title: OS X Bash 키보드 단축키
 category: dev
-tags:
-  - Mac
-  - OS X
-  - terminal
-  - bash
-  - emacs
-  - shortcut
+tags: ["Mac", "OS X", "terminal", "bash", "emacs", "shortcut"]
 date: 2015-08-30 02:03:11
 rediect_from:
   - /2015/08/30/osx-bash-keyboard-shortcuts/

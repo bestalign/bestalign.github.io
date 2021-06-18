@@ -1,10 +1,7 @@
 ---
 title: new와 prototype
 category: dev
-tags:
-  - JavaScript
-  - new
-  - prototype
+tags: ["JavaScript", "new", "prototype"]
 date: 2015-07-20 10:33:56
 redirect_from:
   - /2015/07/20/new-prototype

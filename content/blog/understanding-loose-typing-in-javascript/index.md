@@ -1,10 +1,7 @@
 ---
 title: 자바스크립트의 느슨한 타입(Loose Typing) 이해하기
 category: dev
-tags:
-  - JavaScript
-  - loose typing
-  - strong typing
+tags: ["JavaScript", "loose typing", "strong typing"]
 date: 2015-10-21 19:41:39
 redirect_from:
   - /2015/10/21/understanding-loose-typing-in-javascript/

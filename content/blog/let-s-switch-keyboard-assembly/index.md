@@ -1,10 +1,7 @@
 ---
 title: Let's Split Keyboard 조립기
 category: everydaylife
-tags:
-  - Keyboard
-  - Assembly
-  - Let's Split
+tags: ["Keyboard", "Assembly", "Let's Split"]
 date: 2017-07-03 02:26:38
 redirect_from:
   - /2017/07/03/let-s-switch-keyboard-assembly/

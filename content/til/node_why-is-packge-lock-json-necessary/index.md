@@ -1,8 +1,7 @@
 ---
 title: package-lock.json은 왜 필요한가?
 category: til
-tags:
-  - node
+tags: ["NodeJS"]
 date: 2021-06-16 15:46:13
 ---
 

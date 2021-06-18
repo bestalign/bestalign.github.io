@@ -1,11 +1,7 @@
 ---
 title: Method Parameter and Exception Handling
 category: dev
-tags:
-  - Java
-  - Effective Java
-  - Method Parameter
-  - Exception
+tags: ["Java", "Effective Java", "Method Parameter", "Exception"]
 date: 2017-04-12 23:18:46
 redirect_from:
   - /2017/04/12/favor-use-of-standard-exceptions/

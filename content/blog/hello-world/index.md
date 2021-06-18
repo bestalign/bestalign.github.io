@@ -1,6 +1,7 @@
 ---
 title: Github pages로 블로그를 열었습니다
 category: everydaylife
+tags: ["blog"]
 date: 2015-06-25 20:33:56
 redirect_from:
   - /2015/06/25/hello-world/

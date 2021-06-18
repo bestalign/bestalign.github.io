@@ -1,6 +1,7 @@
 ---
 title: 블로그를 업데이트 했습니다
 category: everydaylife
+tags: ["blog"]
 date: 2021-06-11 15:52:25
 ---
 

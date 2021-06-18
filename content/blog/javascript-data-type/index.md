@@ -1,9 +1,7 @@
 ---
 title: JavaScript Data Types
 category: dev
-tags:
-	- JavaScript
-  - Data Type
+tags: [JavaScript, Data Type]
 date: 2015-06-29 01:20:21
 redirect_from:
 	- /2015/06/29/JavaScript-Data-Type/

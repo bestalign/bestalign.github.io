@@ -1,9 +1,7 @@
 ---
 title: 2016년 회고
 category: everydaylife
-tags:
-  - blog
-  - retrospective
+tags: ["blog", "retrospective"]
 date: 2017-02-07
 redirect_from:
   - /2017/02/07/2016-summary/

@@ -1,11 +1,7 @@
 ---
 title: JavaScript의 함수는 1급 객체(first class object)이다
 category: dev
-tags:
-  - JavaScript
-  - function
-  - first class object
-  - first class citizen
+tags: ["JavaScript", "function", "first class object", "first class citizen"]
 date: 2015-10-18 18:05:06
 redirect_from:
   - /2015/10/18/first-class-object/
