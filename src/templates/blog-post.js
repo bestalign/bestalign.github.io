@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Nav from "../components/nav"
 
+const _ = require(`lodash`)
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -27,7 +28,8 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           {post.frontmatter.tags && (
             <span>Tags: {post.frontmatter.tags.map (tag => {
-              return <span className="tag">{tag}</span>
+              const tagLinkUrl = `/tags/`+_.kebabCase(tag)
+              return <span className="tag"><Link to ={tagLinkUrl}>{tag}</Link></span>
             })}</span>
           )}
           <p>{post.frontmatter.date}{post.frontmatter.updated != null && `; updated on ` + post.frontmatter.updated}</p>

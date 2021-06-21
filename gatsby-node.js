@@ -1,4 +1,5 @@
 const path = require(`path`)
+const _ = require(`lodash`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -6,6 +7,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const categoryPage = path.resolve(`./src/templates/category-page.js`)
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const tagPage = path.resolve("src/templates/tag-page.js")
 
   // fetch category info
   const categoryInfo = await graphql(
@@ -41,6 +43,48 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         categoryDisplayText: category.displayText,
         categoryDescription: category.description
       }
+    })
+  })
+
+  // create tags page
+  const tagsResult = await graphql(`
+    {
+      postsRemark: allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              tags
+            }
+          }
+        }
+      }
+      tagsGroup: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
+    }
+  `)
+
+  // handle errors
+  if (tagsResult.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  // Make tag pages
+  tagsResult.data.tagsGroup.group.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: tagPage,
+      context: {
+        tag: tag.fieldValue,
+      },
     })
   })
 

@@ -278,6 +278,11 @@ nav a span:hover {
   margin-bottom: var(--spacing-12);
 }
 
+.tag-description {
+  text-align: center;
+  margin-bottom: var(--spacing-12); 
+}
+
 .post-list {
   margin-top: var(--spacing-8);
 }
@@ -302,6 +307,16 @@ nav a span:hover {
 .post-list-item time {
   font-size: var(--fontSize-0);
   float: right;
+}
+
+.tag-list li a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a.all-tag-link {
+  color: var(--color-text);
+  text-decoration: none;
 }
 
 section.icons {
@@ -334,6 +349,10 @@ section.icons a:hover {
   padding-right: var(--spacing-2);
   padding-bottom: var(--spacing-1);
   margin-right: var(--spacing-1);
+}
+
+.blog-post header span.tag a {
+  text-decoration: none;
 }
 
 .blog-post header p {
