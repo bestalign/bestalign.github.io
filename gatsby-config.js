@@ -14,8 +14,9 @@ module.exports = {
       { name: `home`, url: `/`, displayText: `홈`, priority: 0, generatePage: false },
       { name: `til`, url: `/til`, displayText: `TIL`, description: `Today I Learned. 오늘 배운 것을 짧게 기록합니다.`, priority: 1, generatePage: true },
       { name: `dev`, url: `/dev`, displayText: `개발`, description: `개발, 기술, 방법론 등에 관해 직접 작성합니다.`, priority: 2, generatePage: true },
-      { name: `translation`, url: `/translation`, displayText: `번역`, description: `마음에 드는 글을 번역합니다.`, priority: 3, generatePage: true },
-      { name: `everydaylife`, url: `/everydaylife`, displayText: `일기`, description: `다양한 경험, 생각, 주제에 관해 씁니다.`, priority: 4, generatePage: true }
+      { name: `reading`, url: `/reading`, displayText: `독서`, description: `책을 읽고 드는 생각을 기록합니다.`, priority: 3, generatePage: true },
+      { name: `translation`, url: `/translation`, displayText: `번역`, description: `마음에 드는 글을 번역합니다.`, priority: 4, generatePage: true },
+      { name: `everydaylife`, url: `/everydaylife`, displayText: `일기`, description: `다양한 경험, 생각, 주제에 관해 씁니다.`, priority: 5, generatePage: true },
     ]
   },
   plugins: [
@@ -45,6 +46,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/reading`,
+        name: `reading`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
@@ -65,6 +73,18 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of Contents",
+              tight: false,
+              ordered: false,
+              fromHeading: 2,
+              toHeading: 6,
+              className: "table-of-contents"
+            },
+          },
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
