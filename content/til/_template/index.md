@@ -1,8 +1,7 @@
 ---
 title: template
 category: til
-tags:
-  - tag
+tags: ["tag"]
 date: cmd + shift + i
 draft: true
 ---
