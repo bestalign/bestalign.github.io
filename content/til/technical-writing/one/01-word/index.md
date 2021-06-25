@@ -34,4 +34,4 @@ date: 2021-06-25 14:52:15
 - 명사과 대명사 사이에 다른 단어가 들어간다면 대명사 대신 명사를 사용하라.
 
 #### reference
-- [google dev technical writing 1 - word](https://developers.google.com/tech-writing/one/words)
+- [Google Dev Technical Writing 1 - word](https://developers.google.com/tech-writing/one/words)
