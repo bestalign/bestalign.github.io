@@ -14,4 +14,4 @@ date: 2021-06-16 15:46:13
 - 이미 어떤 버전을 설치해야 하는지 알기 때문에 설치가 더 빠르다
 
 #### Reference
-[NPM package-lock.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json)
+- [NPM package-lock.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json)

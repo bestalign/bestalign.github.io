@@ -20,6 +20,6 @@ updated: 2021-06-17 12:34:26
 #### tmpfs mount
 리눅스에서만 사용할 수 있는 기능으로, 메모리에 저장공간을 할당해 마운트한다. 위의 두 종류와는 달리 오랫동안 저장할 필요가 없거나 민감한 정보를 저장할 때 사용할 수 있다. 컨테이너가 멈추면 모든 데이터는 사라진다.
 
-##### Reference
+#### Reference
 - [Docker Docs - Storage](https://docs.docker.com/storage/)
 - [Dev Eric - 도커 볼륨의 종류](https://deveric.tistory.com/111)
