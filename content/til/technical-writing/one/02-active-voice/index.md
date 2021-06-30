@@ -14,5 +14,5 @@ date: 2021-06-25 16:43:14
 - 수동태 문장에서는 행위자가 빠지는 경우가 있다. 읽는 사람이 추측해야만 한다.
 - 능동태 문장이 대부분 간결하다.
 
-#### reference
+#### Reference
 - [Google Dev Technical Writing 1 - active voice](https://developers.google.com/tech-writing/one/active-voice)
